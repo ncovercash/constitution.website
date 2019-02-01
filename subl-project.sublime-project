@@ -1,0 +1,34 @@
+{
+	"folders": [
+		{
+			"path": ".",
+			"name": "We the Future Contest",
+			"folder_exclude_patterns": [
+				"src/vendor"
+			]
+		},
+	],
+	"settings": {
+	},
+	"build_systems": [
+		{
+			"name": "We the Future Contest",
+			"shell_cmd": "echo No selected command",
+			"working_dir": "$folder",
+			"variants": [
+				{
+					"name": "Get uncommited work",
+					"shell_cmd": "git diff"
+				},
+				{
+					"name": "Test single file",
+					"shell_cmd": "bash -c './test-single \"$file\"'"
+				},
+				{
+					"name": "Test all",
+					"shell_cmd": "bash -c './test'"
+				}
+			],
+		}
+	]
+}

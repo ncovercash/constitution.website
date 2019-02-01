@@ -1,0 +1,13 @@
+{
+    "require": {
+        "phpmailer/phpmailer": "*",
+        "ddeboer/imap": "*",
+        "whichbrowser/parser": "*",
+        "ralouphie/getallheaders": "*"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "*",
+        "slam/phpstan-extensions": "*",
+        "mrclay/minify": "*"
+    }
+}

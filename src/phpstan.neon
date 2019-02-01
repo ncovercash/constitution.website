@@ -1,0 +1,21 @@
+parameters:
+	excludes_analyse:
+		- src/vendor
+		- src/phpqrcode.php
+		- scripts/
+		- src/Form/FormPHP
+	bootstrap: src/phpstan-init.php
+	fileExtensions:
+		- php
+		- css
+		- js
+	ignoreErrors:
+		- '/Class QRcode should be written with ::class notation, string found\./'
+		- '/Cannot call method bindTo\(\) on callable./'
+		- '/Variable \$_(GET|POST|FILES|SESSION) in isset\(\) always exists and is not nullable./'
+		- '/Class .+ should be written with ::class notation, string found./'
+		- '/Parameter #1 \$\w+ of function (call_user_func|array_map) expects callable.+/'
+		- '/Parameter #1 \$input of function array_slice expects array, string given./'
+		- '/Method WeTheFuture\\Page\\Resources::getStyles\(\) should return array<string> but returns array<int, array>./'
+includes:
+	- vendor/slam/phpstan-extensions/conf/slam-rules.neon

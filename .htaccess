@@ -1,0 +1,43 @@
+<IfModule mod_deflate.c>
+	<FilesMatch "\.(html?|txt|css|js|php|pl)$">
+		SetOutputFilter DEFLATE
+	</FilesMatch>
+</IfModule>
+
+<IfModule mod_speling.c>
+	CheckSpelling on
+	CheckCaseOnly on
+	checkcaseonly on
+</IfModule>
+
+<IfModule mod_negotiation.c>
+	Options -MultiViews
+</IfModule>
+
+<IfModule mod_proxy_fcgi.c>
+	<FilesMatch ".+\.(cs|j)s$">
+		SetHandler "proxy:unix:/run/php/php7.2-fpm.sock|fcgi://localhost"
+	</FilesMatch>
+</IfModule>
+<IfModule mod_php7.c>
+	AddHandler application/x-httpd-php .css
+	AddHandler application/x-httpd-php .js
+</IfModule>
+
+<FilesMatch ".+\.(jpe?(g|2|x|m)|mj2|jxr|webp|gif|a?png|bmp|ico|xbm|svg)$">
+	Header set Cache-Control "max-age=31536000, public"
+</FilesMatch>
+
+AddType image/webp .webp
+
+Options -Indexes
+
+# These are merely for reference, and should be in an applicable virtual host
+#
+# Header always set Public-Key-Pins "pin-sha256=\"/1wZvc4rB52M8Th+eC3B1m8NyXwVsra2Rbt79PPjqr4=\"; pin-sha256=\"g+yUOQyLauy4/9LeSVDpddGSN2v5CAo+vasXNuXFQtI=\"; pin-sha256=\"sRHdihwgkaib1P1gxX8HFszlD+7/gTfNvuAybgLPNis=\"; pin-sha256=\"YLh1dUR9y6Kja30RrAn7JKnbQG/uEtLMkBgFF2Fuihg=\"; pin-sha256=\"C5+lpZ7tcVwmwQIMcRtPbsQtWLABXhQzejna0wHFr8M=\"; pin-sha256=\"Ay8a3+MQTzGllOo/R63isAX7UTxvvCWK6ID6o9gX5/I=\"; pin-sha256=\"A9O4iLpl66ZU11ZJPiTjvx/rBX96KyI/GjdYX/tZNFc=\"; max-age=63072000; includeSubdomains; preload"
+# Header always set Strict-Transport-Security "max-age=63072000; includeSubdomains; preload"
+# Header always set Expect-CT "enforce, max-age=63072000, report-uri=\"https://constitution.website/api/internal/ssl_report_uri/\""
+# Header always set X-Frame-Options "SAMEORIGIN"
+# Header always set X-XSS-Protection "1; mode=block"
+# Header always set X-Content-Type-Options "nosniff"
+# Header always set Referrer-Policy "strict-origin-when-cross-origin"
